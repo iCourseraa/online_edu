@@ -29,8 +29,8 @@ mybatis-plus:
 
 # aliyun
 aliyun:
-  access-key-id: LTAI5tHmwMJ8n35gMgrRVNWh
-  access-key-secret: 5UiKf1IKXafgHnIIiIp6kUVHEASTOn
+  access-key-id: 
+  access-key-secret: 
   oss:
     bucket-name: vismooc
     endpoint: oss-cn-hangzhou.aliyuncs.com

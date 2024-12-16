@@ -25,7 +25,7 @@ public class UctrMemberDetail implements Serializable, BeanConvert {
 	private Integer id;
 
 	@NotBlank(message = "手机号不能为空")
-	@Pattern(regexp = "^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$", message = "手机号不合法")
+	@Pattern(regexp = "^\\d{11}$", message = "手机号不合法")
 	@ApiModelProperty(value = "手机号")
 	private String mobile;
 

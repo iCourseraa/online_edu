@@ -36,9 +36,15 @@
             <i class="el-icon-caret-bottom" />
           </div>
           <el-dropdown-menu slot="dropdown" class="user-dropdown">
+            <!-- 新增个人中心按钮 -->
+            <router-link :to="{ name: 'PersonalCenter'}">
+              <el-dropdown-item icon="el-icon-s-order">
+                个人中心
+              </el-dropdown-item>
+            </router-link>
             <router-link :to="{name: 'Profile'}">
               <el-dropdown-item icon="el-icon-user">
-                个人中心
+                资料修改
               </el-dropdown-item>
             </router-link>
             <el-dropdown-item divided icon="el-icon-switch-button" @click.native="logout">

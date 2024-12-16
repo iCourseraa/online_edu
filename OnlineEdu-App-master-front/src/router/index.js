@@ -73,11 +73,18 @@ export default new Router({
       component: Layout,
       redirect: '/user/profile',
       children: [
-        // 个人中心
+        //个人中心
+        {
+          path: '/user/PersonalCenter',  // 新的个人中心路径
+          name: 'PersonalCenter',
+          meta: { title: '个人中心' },  // 更新标题
+          component: () => import('@/views/PersonalCenter/PersonalCenter')
+        },
+        // 资料修改
         {
           path: '/user/profile',
           name: 'Profile',
-          meta: { title: '个人中心' },
+          meta: { title: '资料修改' },
           component: () => import('@/views/profile/index')
         },
         // 订阅订单

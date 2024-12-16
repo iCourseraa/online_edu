@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
 public class RegisterParam {
 
 	@NotNull(message = "手机号不能为空")
-	@Pattern(regexp = "^0?(13[0-9]|15[012356789]|17[013678]|18[0-9]|14[57])[0-9]{8}$", message = "手机号不合法")
+	@Pattern(regexp = "^\\d{11}$", message = "手机号不合法")
 	private String username;
 
 	@NotBlank(message = "密码不能为空")

@@ -20,8 +20,8 @@ import xyz.refrain.onlineedu.model.vo.PageResult;
 import xyz.refrain.onlineedu.model.vo.R;
 import xyz.refrain.onlineedu.model.vo.app.UctrMemberDetailVO;
 import xyz.refrain.onlineedu.model.vo.app.UctrMemberSimpleVO;
-import xyz.refrain.onlineedu.utils.IPUtils;//
-import xyz.refrain.onlineedu.utils.RUtils;//
+import xyz.refrain.onlineedu.utils.IPUtils;
+import xyz.refrain.onlineedu.utils.RUtils;
 import xyz.refrain.onlineedu.utils.SessionUtils;
 
 import javax.annotation.Resource;
@@ -34,6 +34,7 @@ import java.util.stream.Collectors;
 /**
  * Edu Teacher Service
  *
+ * @author Myles Yang
  */
 @Service
 @Slf4j
@@ -249,6 +250,7 @@ public class UctrMemberService {
 		String sign = detail.getSign();
 		SexEnum sex = detail.getSex();
 		Integer age = detail.getAge();
+		String email = detail.getEmail(); // 添加获取email字段
 
 		int i = uctrMemberMapper.update(null,
 				Wrappers.lambdaUpdate(UctrMemberEntity.class)
@@ -257,6 +259,7 @@ public class UctrMemberService {
 						.set(StringUtils.hasText(sign), UctrMemberEntity::getSign, sign)
 						.set(Objects.nonNull(sex), UctrMemberEntity::getSex, sex)
 						.set(Objects.nonNull(age), UctrMemberEntity::getAge, age)
+						.set(StringUtils.hasText(email), UctrMemberEntity::getEmail, email) // 添加email更新
 		);
 		if (i > 0) {
 			// 更新session信息

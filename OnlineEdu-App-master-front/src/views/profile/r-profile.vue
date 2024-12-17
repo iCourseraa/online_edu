@@ -7,6 +7,9 @@
       <el-form-item label="昵称：" prop="nickname">
         <el-input v-model="user.nickname" />
       </el-form-item>
+      <el-form-item label="邮箱：" prop="email">
+              <el-input v-model=" user.email" />
+            </el-form-item>
       <el-form :model="user" size="small" :inline="true" label-width="50px">
         <el-form-item label="性别：" prop="sex">
           <el-radio-group v-model="user.sex">

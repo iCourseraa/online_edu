@@ -1,0 +1,58 @@
+{
+  "groups": [
+    {
+      "name": "aliyun",
+      "type": "xyz.refrain.onlineedu.config.properties.AliyunProperties",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunProperties"
+    },
+    {
+      "name": "aliyun.oss",
+      "type": "xyz.refrain.onlineedu.config.properties.AliyunOssProperties",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunOssProperties"
+    },
+    {
+      "name": "aliyun.vod",
+      "type": "xyz.refrain.onlineedu.config.properties.AliyunVodProperties",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunVodProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.access-key-id",
+      "type": "java.lang.String",
+      "description": "阿里云 API 访问Id",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunProperties"
+    },
+    {
+      "name": "aliyun.access-key-secret",
+      "type": "java.lang.String",
+      "description": "阿里云 API 访问密钥",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunProperties"
+    },
+    {
+      "name": "aliyun.oss.access-domain",
+      "type": "java.lang.String",
+      "description": "访问域名域名，默认根据bucketName与endpoint设置",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunOssProperties"
+    },
+    {
+      "name": "aliyun.oss.bucket-name",
+      "type": "java.lang.String",
+      "description": "oss Bucket 名称",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunOssProperties"
+    },
+    {
+      "name": "aliyun.oss.endpoint",
+      "type": "java.lang.String",
+      "description": "地域访问域名，请不要添加http[s]:\/\/前缀",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunOssProperties"
+    },
+    {
+      "name": "aliyun.vod.region-id",
+      "type": "java.lang.String",
+      "description": "点播服务接入点",
+      "sourceType": "xyz.refrain.onlineedu.config.properties.AliyunVodProperties"
+    }
+  ],
+  "hints": []
+}

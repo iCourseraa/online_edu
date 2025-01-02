@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.refrain.onlineedu.mapper.EduVideoMapper_new">
+    <!-- ResultMap: 映射查询结果 -->
+    <resultMap id="EduVideoEntityResult" type="xyz.refrain.onlineedu.model.entity.EduVideoEntity_new">
+        <!-- edu_video 表字段 -->
+        <result property="id" column="id"/>
+        <result property="courseId" column="course_id"/> <!-- edu_video 中的 course_id -->
+        <result property="chapterId" column="chapter_id"/>
+        <result property="title" column="title"/>
+        <result property="videoId" column="video_id"/>
+        <result property="sort" column="sort"/>
+        <result property="playCount" column="play_count"/>
+        <result property="free" column="free"/>
+        <result property="duration" column="duration"/>
+        <result property="size" column="size"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="createTime" column="create_time"/>
+
+        <!-- edu_course 表字段 -->
+        <result property="teacherId" column="teacher_id"/>
+    </resultMap>
+
+    <!-- 查询语句: 使用 JOIN 将 edu_video 和 edu_course 表联接 -->
+    <select id="selectListWithCourse" resultMap="EduVideoEntityResult">
+        SELECT
+        ev.*,
+        ev.id AS id,
+        ev.course_id AS course_id,
+        ec.teacher_id
+        FROM
+        edu_video ev
+        LEFT JOIN
+        edu_course ec ON ev.course_id = ec.id
+        WHERE
+        1 = 1
+        <if test="teacherId != null">
+            AND ec.teacher_id = #{teacherId}
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.refrain.onlineedu.mapper.UserLookNumberMapper">
+
+    <resultMap type="xyz.refrain.onlineedu.model.entity.EduVideoNumberEntity" id="EduVideoNumberEntityResult">
+        <result property="id" column="id" />
+        <result property="userId" column="user_id" />
+        <result property="videoId" column="video_id" />
+        <result property="courseId" column="course_id" />
+        <result property="teacherId" column="teacher_id" />
+        <result property="playNumber" column="play_number" />
+        <result property="pauseNumber" column="pause_number" />
+        <result property="endedNumber" column="ended_number" />
+        <result property="seekedNumber" column="seeked_number" />
+        <result property="completionRateNumber" column="completion_rate_number" />
+        <result property="currTime" column="curr_time" />
+        <result property="durationNumber" column="duration_number" />
+        <result property="kjNumber" column="kj_number" />
+        <result property="ktNumber" column="kt_number" />
+        <result property="createTime" column="create_time" />
+        <result property="nickname" column="nickname" />
+        <result property="title" column="title" />
+    </resultMap>
+
+    <select id="selectAll" parameterType="xyz.refrain.onlineedu.model.entity.EduVideoNumberEntity" resultMap="EduVideoNumberEntityResult">
+        SELECT
+        evn.*,
+        um.nickname,
+        ev.title,
+        ec.teacher_id,
+        ev.course_id
+        FROM
+        edu_video_number evn
+        LEFT JOIN
+        uctr_member um ON um.id = evn.user_id
+        LEFT JOIN
+        edu_video ev ON ev.id = evn.video_id
+        LEFT JOIN
+        edu_course ec ON ec.id = ev.course_id -- 新增连接
+        WHERE
+        1 = 1
+        <if test="videoId != null">
+            AND evn.video_id = #{videoId}
+        </if>
+        <if test="userId != null">
+            AND evn.user_id = #{userId}
+        </if>
+        <if test="courseId != null">
+            AND ev.course_id = #{courseId}
+        </if>
+    </select>
+
+</mapper>
